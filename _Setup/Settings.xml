@@ -1,0 +1,68 @@
+<!-- Recommended to use "Windows" Authentication -->
+<!-- For "SQLServer" Authentication, provide UserName and Password -->
+<Settings>
+	<ProjectName>DriveLogistics</ProjectName>
+	<DeploymentEnvironment>Development</DeploymentEnvironment>
+  <DeploymentWait>15</DeploymentWait> <!-- Number of seconds the process will wait for after validating Settings.xml | Keep it 15 if possible -->
+	<ReleaseTrackerTable>ReleaseLog</ReleaseTrackerTable>
+	<Servers>
+		<Server Environment="Development">
+			<ServerName>localhost</ServerName>
+			<ServerPort></ServerPort>
+			<DatabaseName>DRIVELOGISTICS</DatabaseName>
+			<AuthenticationType>Windows</AuthenticationType> <!-- Windows | SQLServer -->
+			<UserName></UserName>
+			<Password></Password>
+		</Server>
+		<Server Environment="QA">
+			<ServerName>localhost\QA01</ServerName>
+			<ServerPort></ServerPort>
+			<DatabaseName>DRIVELOGISTICS</DatabaseName>
+			<AuthenticationType>Windows</AuthenticationType> <!-- Windows | SQLServer -->
+			<UserName></UserName>
+			<Password></Password>
+		</Server>
+	</Servers>
+	<ObjectSetting>
+		<MaxRetry>3</MaxRetry>
+    <!-- To change an order of execution, just change the order of respective object type in <ObjectList>-->
+    <ObjectList>
+      <ObjectType>
+        <ObjectType>_PreDeployment</ObjectType>
+        <ObjectPath>..\_PreDeployment</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Schemas</ObjectType>
+        <ObjectPath>..\Schemas</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Tables</ObjectType>
+        <ObjectPath>..\Tables</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Functions</ObjectType>
+        <ObjectPath>..\Functions</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Views</ObjectType>
+        <ObjectPath>..\Views</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Procedures</ObjectType>
+        <ObjectPath>..\Procedures</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Triggers</ObjectType>
+        <ObjectPath>..\Triggers</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>Scripts</ObjectType>
+        <ObjectPath>..\Scripts</ObjectPath>
+      </ObjectType>
+      <ObjectType>
+        <ObjectType>_PostDeployment</ObjectType>
+        <ObjectPath>..\_PostDeployment</ObjectPath>
+      </ObjectType>
+    </ObjectList>
+	</ObjectSetting>
+</Settings>
